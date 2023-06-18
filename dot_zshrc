@@ -21,6 +21,7 @@ alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 alias ip='ip -color=auto'
 alias rm='rm -i'
+alias gfc="git fetch && git checkout"
 
 eval "$(starship init zsh)"
 eval "$(sheldon source)"

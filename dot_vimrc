@@ -1,0 +1,38 @@
+"" vim-plug
+"" Installation: https://github.com/junegunn/vim-plug#installation
+call plug#begin()
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'hashivim/vim-terraform'
+Plug 'w0rp/ale'
+Plug 'airblade/vim-gitgutter'
+Plug 'Yggdroot/indentLine'
+call plug#end()
+
+"" for vim-airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline_theme='wombat'
+set laststatus=2
+
+"" hashivim/vim-terraform
+let g:terraform_align=1
+let g:terraform_fold_sections=1
+let g:terraform_remap_spacebar=1
+let g:terraform_fmt_on_save=1
+
+"" Common
+set tabstop=4
+set shiftwidth=4
+set nu
+set clipboard+=unnamed
+set cursorline
+set encoding=utf-8
+set fileencodings=utf-8,sjis,euc-jp,iso-2022-jp
+set fileformats=unix,dos,mac
+set paste
+
+"" Settings per filetype
+autocmd FileType yaml setlocal softtabstop=2 tabstop=2 shiftwidth=2 expandtab smartindent
+

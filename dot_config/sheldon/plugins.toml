@@ -33,6 +33,11 @@ local = '/usr/share/fzf'
 use = ["key-bindings.zsh"]
 apply = ["defer"]
 
+[plugins.enhancd]
+github = 'b4b4r07/enhancd'
+apply = ["defer", "ENHANCD_ENABLE_HOME"]
+
 [templates]
 defer = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"
+ENHANCD_ENABLE_HOME = 'export ENHANCD_ENABLE_HOME=false'
 

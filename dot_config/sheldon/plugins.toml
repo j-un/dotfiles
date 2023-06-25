@@ -19,6 +19,10 @@ github = "romkatv/zsh-defer"
 [plugins.zsh-256color]
 github = 'chrissicool/zsh-256color'
 
+[plugins.tmux-minimum]
+local = '~/.local/share/zsh-plugins/tmux-minimum'
+use = ['{{ name }}.plugin.zsh']
+
 [plugins.zsh-syntax-highlighting]
 github = 'zsh-users/zsh-syntax-highlighting'
 apply = ["defer"]

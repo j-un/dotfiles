@@ -21,7 +21,7 @@ github = 'chrissicool/zsh-256color'
 
 [plugins.tmux-minimum]
 local = '~/.local/share/zsh-plugins/tmux-minimum'
-use = ['{{ name }}.plugin.zsh']
+use = ['{{ "{{" }} name {{ "}}" }}.plugin.zsh']
 
 [plugins.zsh-syntax-highlighting]
 github = 'zsh-users/zsh-syntax-highlighting'
@@ -29,11 +29,15 @@ apply = ["defer"]
 
 [plugins.zsh-autosuggestions]
 github = 'zsh-users/zsh-autosuggestions'
-use = ['{{ name }}.zsh']
+use = ['{{ "{{" }} name {{ "}}" }}.zsh']
 apply = ["defer"]
 
 [plugins.fzf-key-bindings]
+{{ if eq .chezmoi.os "darwin" }}
+local = '/opt/homebrew/var/homebrew/linked/fzf/shell'
+{{ else if eq .chezmoi.os "linux" }}
 local = '/usr/share/fzf'
+{{ end }}
 use = ["key-bindings.zsh"]
 apply = ["defer"]
 
@@ -42,6 +46,5 @@ github = 'b4b4r07/enhancd'
 apply = ["defer", "ENHANCD_ENABLE_HOME"]
 
 [templates]
-defer = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"
+defer = "{{ `{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}` }}"
 ENHANCD_ENABLE_HOME = 'export ENHANCD_ENABLE_HOME=false'
-

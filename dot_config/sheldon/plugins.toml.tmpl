@@ -29,8 +29,15 @@ inline = 'eval "$(starship init zsh)"'
 [plugins.anyenv]
 inline = 'eval "$(anyenv init -)"'
 
-[plugins.tmux-minimum]
-local = "~/.local/share/zsh-plugins/tmux-minimum"
+[plugins.tmux]
+github = "sorin-ionescu/prezto"
+dir = "modules/tmux"
+hook.pre = """
+zstyle ':prezto:module:tmux:auto-start' local 'yes'
+"""
+
+#[plugins.tmux-minimum]
+#local = "~/.local/share/zsh-plugins/tmux-minimum"
 
 [plugins.zsh-syntax-highlighting]
 github = "zsh-users/zsh-syntax-highlighting"

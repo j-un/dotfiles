@@ -3,3 +3,9 @@ disabled = false
 format = '[$time]($style) '
 time_format = '%y-%m-%d %T'
 style = 'dimmed #777777'
+
+[gcloud]
+disabled = true
+
+[hostname]
+ssh_only = false

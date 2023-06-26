@@ -17,34 +17,47 @@ shell = "zsh"
 github = "romkatv/zsh-defer"
 
 [plugins.zsh-256color]
-github = 'chrissicool/zsh-256color'
+github = "chrissicool/zsh-256color"
+
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+
+[plugins.starship]
+inline = 'eval "$(starship init zsh)"'
 
 [plugins.tmux-minimum]
-local = '~/.local/share/zsh-plugins/tmux-minimum'
-use = ['{{ "{{" }} name {{ "}}" }}.plugin.zsh']
+local = "~/.local/share/zsh-plugins/tmux-minimum"
 
 [plugins.zsh-syntax-highlighting]
-github = 'zsh-users/zsh-syntax-highlighting'
+github = "zsh-users/zsh-syntax-highlighting"
 apply = ["defer"]
 
 [plugins.zsh-autosuggestions]
-github = 'zsh-users/zsh-autosuggestions'
-use = ['{{ "{{" }} name {{ "}}" }}.zsh']
+github = "zsh-users/zsh-autosuggestions"
 apply = ["defer"]
 
 [plugins.fzf-key-bindings]
 {{ if eq .chezmoi.os "darwin" }}
-local = '/opt/homebrew/var/homebrew/linked/fzf/shell'
+local = "/opt/homebrew/var/homebrew/linked/fzf/shell"
 {{ else if eq .chezmoi.os "linux" }}
-local = '/usr/share/fzf'
+local = "/usr/share/fzf"
 {{ end }}
 use = ["key-bindings.zsh"]
 apply = ["defer"]
 
 [plugins.enhancd]
-github = 'b4b4r07/enhancd'
-apply = ["defer", "ENHANCD_ENABLE_HOME"]
+github = "b4b4r07/enhancd"
+apply = ["defer"]
+hooks.pre = "export ENHANCD_ENABLE_HOME=false"
+
+[plugins.zsh-you-should-use]
+github = "MichaelAquilina/zsh-you-should-use"
+apply = ["defer"]
+hooks.pre = "export YSU_MODE=ALL"
+
+[plugins.anyenv]
+inline = 'eval "$(anyenv init -)"'
+apply = ["defer"]
 
 [templates]
 defer = "{{ `{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}` }}"
-ENHANCD_ENABLE_HOME = 'export ENHANCD_ENABLE_HOME=false'

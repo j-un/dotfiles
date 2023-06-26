@@ -32,7 +32,7 @@ inline = 'eval "$(anyenv init -)"'
 [plugins.tmux]
 github = "sorin-ionescu/prezto"
 dir = "modules/tmux"
-hook.pre = """
+hooks.pre = """
 zstyle ':prezto:module:tmux:auto-start' local 'yes'
 """
 

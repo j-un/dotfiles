@@ -23,6 +23,4 @@ alias ip='ip -color=auto'
 alias rm='rm -i'
 alias gfc="git fetch && git checkout"
 
-eval "$(starship init zsh)"
 eval "$(sheldon source)"
-eval "$(anyenv init -)"

@@ -25,6 +25,10 @@ github = "zsh-users/zsh-completions"
 [plugins.starship]
 inline = 'eval "$(starship init zsh)"'
 
+# TODO: deferしたい(inlineだとapply書けない)
+[plugins.anyenv]
+inline = 'eval "$(anyenv init -)"'
+
 [plugins.tmux-minimum]
 local = "~/.local/share/zsh-plugins/tmux-minimum"
 
@@ -54,10 +58,6 @@ hooks.pre = "export ENHANCD_ENABLE_HOME=false"
 github = "MichaelAquilina/zsh-you-should-use"
 apply = ["defer"]
 hooks.pre = "export YSU_MODE=ALL"
-
-[plugins.anyenv]
-inline = 'eval "$(anyenv init -)"'
-apply = ["defer"]
 
 [templates]
 defer = "{{ `{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}` }}"

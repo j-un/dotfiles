@@ -34,6 +34,7 @@ github = "sorin-ionescu/prezto"
 dir = "modules/tmux"
 hooks.pre = """
 zstyle ':prezto:module:tmux:auto-start' local 'yes'
+zstyle ':prezto:module:tmux:session' name $(uname -n)
 """
 
 #[plugins.tmux-minimum]

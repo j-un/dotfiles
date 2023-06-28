@@ -19,9 +19,6 @@ github = "romkatv/zsh-defer"
 [plugins.zsh-256color]
 github = "chrissicool/zsh-256color"
 
-[plugins.zsh-completions]
-github = "zsh-users/zsh-completions"
-
 [plugins.starship]
 inline = 'eval "$(starship init zsh)"'
 
@@ -39,6 +36,10 @@ zstyle ':prezto:module:tmux:session' name $(uname -n)
 
 #[plugins.tmux-minimum]
 #local = "~/.local/share/zsh-plugins/tmux-minimum"
+
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+apply = ["defer"]
 
 [plugins.zsh-syntax-highlighting]
 github = "zsh-users/zsh-syntax-highlighting"

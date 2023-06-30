@@ -4,6 +4,8 @@ bashcompinit
 select-word-style bash
 
 bindkey -e
+bindkey ƒ emacs-forward-word    # Option + f
+bindkey ∫ emacs-backward-word   # Option + b
 
 setopt correct
 setopt share_history

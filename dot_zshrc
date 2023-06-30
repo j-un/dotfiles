@@ -3,13 +3,10 @@ compinit
 bashcompinit
 select-word-style bash
 
+bindkey -e
+
 setopt correct
 setopt share_history
-
-export HISTFILE=${ZDOTDIR:-$HOME}/.zhistory
-export HISTSIZE=2000
-export SAVEHIST=10000
-export EDITOR=vim
 
 alias vi="vim"
 alias view="vim -R"
@@ -22,5 +19,14 @@ alias diff='diff --color=auto'
 alias ip='ip -color=auto'
 alias rm='rm -i'
 alias gfc="git fetch && git checkout"
+
+export HISTFILE=${ZDOTDIR:-$HOME}/.zhistory
+export HISTSIZE=2000
+export SAVEHIST=10000
+export EDITOR=vim
+
+if [ -d "/opt/homebrew/opt/coreutils/libexec/gnubin" ]; then
+  export PATH=/opt/homebrew/opt/coreutils/libexec/gnubin:${PATH}
+fi
 
 eval "$(sheldon source)"

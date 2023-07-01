@@ -46,13 +46,8 @@ apply = ["defer"]
 github = "zsh-users/zsh-autosuggestions"
 apply = ["defer"]
 
-[plugins.fzf-key-bindings]
-{{ if eq .chezmoi.os "darwin" }}
-local = "/opt/homebrew/var/homebrew/linked/fzf/shell"
-{{ else if eq .chezmoi.os "linux" }}
-local = "/usr/share/fzf"
-{{ end }}
-use = ["key-bindings.zsh"]
+[plugins.zsh-fzf-history-search]
+github = "joshskidmore/zsh-fzf-history-search"
 apply = ["defer"]
 
 [plugins.enhancd]
@@ -66,4 +61,4 @@ apply = ["defer"]
 hooks.pre = "export YSU_MODE=ALL"
 
 [templates]
-defer = "{{ `{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}` }}"
+defer = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"

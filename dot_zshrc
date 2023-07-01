@@ -22,6 +22,7 @@ alias diff='diff --color=auto'
 alias ip='ip -color=auto'
 alias rm='rm -i'
 alias gfc="git fetch && git checkout"
+alias bb="brew bundle --no-lock --file=~/.config/Brewfile"
 
 export HISTFILE=${ZDOTDIR:-$HOME}/.zhistory
 export HISTSIZE=2000

@@ -2,6 +2,8 @@ autoload -Uz compinit bashcompinit select-word-style
 compinit
 bashcompinit
 select-word-style bash
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+unsetopt CASE_GLOB
 
 bindkey -e
 bindkey ƒ emacs-forward-word    # Option + f

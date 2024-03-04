@@ -56,9 +56,9 @@ export ZSH_FZF_HISTORY_SEARCH_REMOVE_DUPLICATES=1
 """
 
 [plugins.enhancd]
-github = "b4b4r07/enhancd"
+github = "babarot/enhancd"
 apply = ["defer"]
-hooks.pre = "export ENHANCD_ENABLE_HOME=false"
+#hooks.pre = "export ENHANCD_ENABLE_HOME=false"
 
 [plugins.zsh-you-should-use]
 github = "MichaelAquilina/zsh-you-should-use"

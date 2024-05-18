@@ -38,5 +38,8 @@ export EDITOR=vim
 if [ -d "/opt/homebrew/opt/coreutils/libexec/gnubin" ]; then
   export PATH=/opt/homebrew/opt/coreutils/libexec/gnubin:${PATH}
 fi
+if [ -x "/opt/homebrew/opt/gnu-sed/bin/gsed" ]; then
+  alias sed='/opt/homebrew/opt/gnu-sed/bin/gsed'
+fi
 
 eval "$(sheldon source)"

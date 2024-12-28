@@ -26,13 +26,13 @@ inline = 'eval "$(starship init zsh)"'
 [plugins.anyenv]
 inline = 'eval "$(anyenv init -)"'
 
-[plugins.tmux]
-github = "sorin-ionescu/prezto"
-dir = "modules/tmux"
-hooks.pre = """
-zstyle ':prezto:module:tmux:auto-start' local 'yes'
-zstyle ':prezto:module:tmux:session' name $(uname -n)
-"""
+#[plugins.tmux]
+#github = "sorin-ionescu/prezto"
+#dir = "modules/tmux"
+#hooks.pre = """
+#zstyle ':prezto:module:tmux:auto-start' local 'yes'
+#zstyle ':prezto:module:tmux:session' name $(uname -n)
+#"""
 
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"

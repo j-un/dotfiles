@@ -38,12 +38,12 @@ export EDITOR=vim
 if [ -d "/opt/homebrew/opt/coreutils/libexec/gnubin" ]; then
   export PATH=/opt/homebrew/opt/coreutils/libexec/gnubin:${PATH}
 fi
-if [ -d "~/.rd/bin" ]; then
-  export PATH=~/.rd/bin:${PATH}
+if [ -d "${HOME}/.rd/bin" ]; then
+  export PATH=${HOME}/.rd/bin:${PATH}
+  export DOCKER_HOST=unix://$HOME/.rd/docker.sock
 fi
 if [ -x "/opt/homebrew/opt/gnu-sed/bin/gsed" ]; then
   alias sed='/opt/homebrew/opt/gnu-sed/bin/gsed'
 fi
 
 eval "$(sheldon source)"
-

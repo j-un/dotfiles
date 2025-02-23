@@ -35,11 +35,12 @@ export HISTSIZE=2000
 export SAVEHIST=20000
 export EDITOR=vim
 
-if [ -d "/opt/homebrew/opt/coreutils/libexec/gnubin" ]; then
-  export PATH=/opt/homebrew/opt/coreutils/libexec/gnubin:${PATH}
-fi
+path+=(
+  /opt/homebrew/opt/coreutils/libexec/gnubin(N-/)
+  ${HOME}/.rd/bin(N-/)
+)
+
 if [ -d "${HOME}/.rd/bin" ]; then
-  export PATH=${HOME}/.rd/bin:${PATH}
   export DOCKER_HOST=unix://$HOME/.rd/docker.sock
 fi
 if [ -x "/opt/homebrew/opt/gnu-sed/bin/gsed" ]; then

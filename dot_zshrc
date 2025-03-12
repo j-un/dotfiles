@@ -23,7 +23,7 @@ alias diff='diff --color=auto'
 alias ip='ip -color=auto'
 alias rm='rm -i'
 alias gfc="git fetch && git checkout"
-alias bb="brew bundle --no-lock --file=~/.config/Brewfile"
+alias bb="brew bundle --file=~/.config/Brewfile"
 
 if (( $+commands[bat] )) ; then
   alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'

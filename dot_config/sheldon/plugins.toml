@@ -22,10 +22,6 @@ github = "chrissicool/zsh-256color"
 [plugins.starship]
 inline = 'eval "$(starship init zsh)"'
 
-# TODO: deferしたい(inlineだとapply書けない)
-[plugins.anyenv]
-inline = 'eval "$(anyenv init -)"'
-
 #[plugins.tmux]
 #github = "sorin-ionescu/prezto"
 #dir = "modules/tmux"

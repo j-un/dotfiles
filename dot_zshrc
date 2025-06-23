@@ -24,6 +24,7 @@ alias ip='ip -color=auto'
 alias rm='rm -i'
 alias gfc="git fetch && git checkout"
 alias bb="brew bundle --file=~/.config/Brewfile"
+alias ssh='env TERM=xterm-256color ssh'
 
 if (( $+commands[bat] )) ; then
   alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'

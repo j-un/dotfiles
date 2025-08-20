@@ -46,7 +46,10 @@ fi
 path+=(
   /opt/homebrew/opt/coreutils/libexec/gnubin(N-/)
   ${HOME}/.rd/bin(N-/)
+  ${HOME}/.lmstudio/bin(N-/)
 )
 
 eval "$(sheldon source)"
+
+. "$HOME/.local/bin/env"
 

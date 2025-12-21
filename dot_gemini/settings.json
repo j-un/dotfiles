@@ -1,0 +1,27 @@
+{
+  "ide": {
+    "enabled": true,
+    "hasSeenNudge": true
+  },
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "ui": {
+    "theme": "Default",
+    "footer": {
+      "hideContextPercentage": false
+    }
+  },
+  "general": {
+    "vimMode": false,
+    "previewFeatures": true
+  },
+  "context": {
+    "fileName": [
+      "AGENTS.md",
+      "GEMINI.md"
+    ]
+  }
+}

@@ -88,3 +88,5 @@ tags
 [._]*.un~
 
 
+
+**/.claude/settings.local.json

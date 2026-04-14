@@ -1,3 +1,4 @@
+typeset -U path PATH
 autoload -Uz compinit bashcompinit select-word-style
 compinit
 bashcompinit
@@ -47,9 +48,9 @@ path+=(
   /opt/homebrew/opt/coreutils/libexec/gnubin(N-/)
   ${HOME}/.rd/bin(N-/)
   ${HOME}/.lmstudio/bin(N-/)
+  ${HOME}/.browser-use-env/bin(N-/)
+  ${HOME}/.local/bin(N-/)
 )
 
 eval "$(sheldon source)"
-
-. "$HOME/.local/bin/env"
 

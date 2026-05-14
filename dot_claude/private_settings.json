@@ -1,4 +1,7 @@
 {
+  "env": {
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-7[1m]"
+  },
   "hooks": {
     "PreToolUse": [
       {
@@ -12,5 +15,9 @@
       }
     ]
   },
-  "model": "opus"
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline-command.sh"
+  },
+  "model": "opusplan"
 }

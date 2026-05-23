@@ -52,5 +52,6 @@ path+=(
   ${HOME}/.local/bin(N-/)
 )
 
+eval "$(mise activate zsh)"
 eval "$(sheldon source)"
 

@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 input=$(cat)
-cwd=$(echo "$input" | jq -r '.cwd')
-model=$(echo "$input" | jq -r '.model.display_name')
-effort=$(echo "$input" | jq -r '.effort.level // empty')
-ctx_size=$(echo "$input" | jq -r '.context_window.context_window_size // empty')
-used=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
-rl_5h=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
-rl_7d=$(echo "$input" | jq -r '.rate_limits.seven_day.used_percentage // empty')
+IFS=$'\t' read -r cwd model effort ctx_size used rl_5h rl_7d < <(
+  echo "$input" | jq -r '[
+    .cwd,
+    .model.display_name,
+    (.effort.level // ""),
+    (.context_window.context_window_size // ""),
+    (.context_window.used_percentage // ""),
+    (.rate_limits.five_hour.used_percentage // ""),
+    (.rate_limits.seven_day.used_percentage // "")
+  ] | @tsv'
+)
 
 time_str=$(date '+%y-%m-%d %T')
 user=$(whoami)

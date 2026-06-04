@@ -1,7 +1,6 @@
 if [ -f /opt/homebrew/bin/brew ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
-if [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]; then
-    . /opt/homebrew/opt/asdf/libexec/asdf.sh
+elif [ -f /home/linuxbrew/.linuxbrew/bin/brew ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 

@@ -1,6 +1,11 @@
 typeset -U path PATH
 autoload -Uz compinit bashcompinit select-word-style
-compinit
+# Regenerate the completion dump at most once a day; skip the security check otherwise.
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qNmh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
 bashcompinit
 select-word-style bash
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
@@ -36,7 +41,7 @@ if [ -x "/opt/homebrew/opt/gnu-sed/bin/gsed" ]; then
 fi
 
 export HISTFILE=${ZDOTDIR:-$HOME}/.zhistory
-export HISTSIZE=2000
+export HISTSIZE=20000
 export SAVEHIST=20000
 export EDITOR=vim
 

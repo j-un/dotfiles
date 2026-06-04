@@ -38,7 +38,6 @@ set cursorline
 set encoding=utf-8
 set fileencodings=utf-8,sjis,euc-jp,iso-2022-jp
 set fileformats=unix,dos,mac
-set paste
 
 "" Settings per filetype
 autocmd FileType yaml setlocal softtabstop=2 tabstop=2 shiftwidth=2 expandtab smartindent

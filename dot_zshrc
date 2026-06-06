@@ -20,9 +20,9 @@ setopt share_history
 
 alias vi="vim"
 alias view="vim -R"
-alias ls="ls --color=auto"
-alias ll="eza -lr --icons"
-alias lll="eza -lrT --icons"
+alias ls="eza --icons --group-directories-first"
+alias ll="eza -l --sort=modified --reverse --icons"
+alias lll="eza -lrT --sort=modified --reverse --icons"
 alias h="history -i"
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
@@ -52,7 +52,6 @@ fi
 path+=(
   /opt/homebrew/opt/coreutils/libexec/gnubin(N-/)
   ${HOME}/.rd/bin(N-/)
-  ${HOME}/.lmstudio/bin(N-/)
   ${HOME}/.browser-use-env/bin(N-/)
   ${HOME}/.local/bin(N-/)
 )

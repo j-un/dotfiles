@@ -22,6 +22,11 @@ opt.splitright = true
 opt.splitbelow = true
 opt.scrolloff = 8
 opt.updatetime = 250
+opt.autoread = true
+
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+  command = "checktime",
+})
 
 -- Disable unused providers to suppress checkhealth warnings
 vim.g.loaded_node_provider  = 0

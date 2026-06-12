@@ -5,7 +5,15 @@ return {
     { [[<C-\>]], mode = { "n", "t" }, desc = "Toggle terminal" },
     { "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "Terminal: float" },
     { "<leader>th", "<cmd>ToggleTerm direction=horizontal<cr>", desc = "Terminal: horizontal" },
-    { "<leader>tv", "<cmd>ToggleTerm direction=vertical size=80<cr>", desc = "Terminal: vertical" },
+    {
+      "<leader>tv",
+      function()
+        local count = vim.v.count == 0 and 1 or vim.v.count
+        vim.cmd(count .. "ToggleTerm direction=vertical size=80")
+      end,
+      mode = { "n", "t" },
+      desc = "Terminal: vertical [count]",
+    },
   },
   config = function(_, opts)
     require("toggleterm").setup(opts)

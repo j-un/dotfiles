@@ -28,6 +28,10 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHo
   command = "checktime",
 })
 
+-- Disable netrw in favour of oil.nvim
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Disable unused providers to suppress checkhealth warnings
 vim.g.loaded_node_provider  = 0
 vim.g.loaded_perl_provider  = 0

@@ -4,7 +4,7 @@ vim.g.maplocalleader = " "
 local map = vim.keymap.set
 
 -- Format
-map("n", "<leader>f", function()
+map("n", "<leader>cf", function()
   require("conform").format({ async = true, lsp_format = "fallback" })
 end, { desc = "Format file" })
 

@@ -5,6 +5,7 @@ return {
     options = { theme = "tokyonight" },
     sections = {
       lualine_b = { "branch", "diff", "diagnostics" },
+      lualine_c = { { "filename", path = 3 } },
     },
   },
 }

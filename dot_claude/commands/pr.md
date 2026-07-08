@@ -34,18 +34,19 @@ Follow these steps with caution:
      - Commits prefixed with `WIP:` or `wip:`.
      - Vague or placeholder messages such as `wip`, `temp`, `save`, `checkpoint`, `fixup`, `xxx`, `todo`, etc.
      - A series of small, fragmented commits that logically belong together (e.g., `add function` followed by `fix typo` followed by `forgot to add file`).
-   - If WIP commits are detected, use interactive rebase to reorganize them into clean, logical units:
+   - If WIP commits are detected, reorganize them into clean, logical units. NOTE: interactive rebase (`git rebase -i`) does NOT work in this environment — use the non-interactive reset method instead:
 ```
-     git rebase -i origin/<default-branch>
+     git reset origin/<default-branch>
 ```
-   - In the interactive rebase editor, squash (`s`) or fixup (`f`) related commits together, and reword (`r`) commit messages to follow **Conventional Commits** format.
+     (mixed reset: unstages everything but keeps the working tree). Then rebuild the history: stage related files by name (`git add <files>`) and commit them group by group, so each commit is one logical unit with a proper Conventional Commits message. Do NOT use `git reset --soft` here — it leaves all changes staged, so the first commit would sweep everything into one. If a single file mixes multiple logical changes, `git add -p` is also unavailable — keep those changes in one commit rather than splitting hunks.
+   - Alternative for a pure squash/fixup (no reordering or message editing needed): a scripted rebase works without an editor, e.g. `GIT_SEQUENCE_EDITOR='sed -i "" "2,\$s/^pick/fixup/"' git rebase -i origin/<default-branch>`. Prefer the soft-reset method when in doubt.
    - Guidelines for reorganization:
      - Group changes by logical unit of work (e.g., one commit per feature, bug fix, or refactor).
      - Each resulting commit should be self-contained: it should compile/pass tests on its own when possible.
      - Write clear, descriptive commit messages in English following Conventional Commits (e.g., `feat: ...`, `fix: ...`, `refactor: ...`).
      - Do NOT simply squash everything into a single commit unless all changes genuinely represent one logical unit.
-   - After rebasing, verify the result with `git log --oneline` and `git diff origin/<default-branch>..HEAD` to ensure no changes were lost.
-   - If the rebase encounters conflicts, resolve them carefully by examining the diff context, then continue with `git rebase --continue`.
+   - After reorganizing, verify the result with `git log --oneline` and `git diff origin/<default-branch>..HEAD` to ensure no changes were lost (the diff must be identical to what it was before the reset).
+   - If the scripted rebase encounters conflicts, resolve them carefully by examining the diff context, then continue with `git rebase --continue`.
 
 5. **Stage Changes**
    - Run `git status` to review which files will be staged.

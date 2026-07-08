@@ -2,7 +2,7 @@
   "env": {
     "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-7[1m]"
   },
-  "model": "claude-opus-4-7[1m]",
+  "model": "Opus",
   "hooks": {
     "PreToolUse": [
       {
@@ -11,6 +11,17 @@
           {
             "type": "command",
             "command": "~/.claude/hooks/rtk-rewrite.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "ExitPlanMode",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/plan-approved-capture.sh"
           }
         ]
       }

@@ -2,7 +2,7 @@
   "env": {
     "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-7[1m]"
   },
-  "model": "opusplan",
+  "model": "claude-opus-4-7[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -22,7 +22,10 @@
   },
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true,
-    "clangd-lsp@claude-plugins-official": true
+    "clangd-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true
   },
   "effortLevel": "xhigh",
   "tui": "fullscreen"

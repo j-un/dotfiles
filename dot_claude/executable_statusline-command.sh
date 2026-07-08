@@ -62,26 +62,25 @@ if [[ -n $transcript_path && -f $transcript_path ]]; then
         .c += ($u.cache_creation_input_tokens // 0) |
         .i += ($u.input_tokens                // 0)
       )) as $s |
-      ($s.r + $s.c + $s.i) as $tot |
-      if $tot > 0 then
-        (($s.r * 100 / $tot) | round | tostring) as $hit |
-        (((1 - ($s.r*0.1 + $s.c*1.25 + $s.i*1.0) / $tot) * 100) | round | tostring) as $save |
-        "\($hit)\t\($save)"
-      else "-\t-" end;
+      ($s.r + $s.c + $s.i) as $total |
+      if $total > 0 then
+        (($s.r * 100 / $total) | round | tostring) as $hit |
+        "\($hit)"
+      else "-" end;
 
     "\(agg($T))\t\(agg($S))"
   ' "$transcript_path" 2>/dev/null)
 fi
 
-t_hit=- t_save=- s_hit=- s_save=-
-[[ -n $stats ]] && IFS=$'\t' read -r t_hit t_save s_hit s_save <<< "$stats"
+t_hit=- s_hit=-
+[[ -n $stats ]] && IFS=$'\t' read -r t_hit s_hit <<< "$stats"
 
 # Render T and S independently; omit whichever side has no data
-hit_parts=() save_parts=()
-[[ $t_hit != "-" ]] && hit_parts+=("T${t_hit}%") && save_parts+=("T${t_save}%")
-[[ $s_hit != "-" ]] && hit_parts+=("S${s_hit}%") && save_parts+=("S${s_save}%")
+hit_parts=()
+[[ $t_hit != "-" ]] && hit_parts+=("T${t_hit}%")
+[[ $s_hit != "-" ]] && hit_parts+=("S${s_hit}%")
 cache_str=""
-(( ${#hit_parts} > 0 )) && cache_str=$(printf " cache:%s save:%s" "${(j:/:)hit_parts}" "${(j:/:)save_parts}")
+(( ${#hit_parts} > 0 )) && cache_str=$(printf " cache:%s" "${(j:/:)hit_parts}")
 
 printf "\033[2;37m[%s]\033[0m \033[2;32m%s@%s\033[0m \033[2;34m%s\033[0m \033[2;33m%s%s\033[0m\033[2;35m%s\033[0m\033[2;36m%s\033[0m%s\033[2;36m%s\033[0m" \
   "$time_str" "$user" "$host" "$cwd" "$model" "$size_str" "$effort_str" "$rl_str" "$ctx_str" "$cache_str"

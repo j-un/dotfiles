@@ -25,7 +25,7 @@ alias ls="eza --icons=auto --group-directories-first"
 alias ll="eza -l --icons=auto --sort=modified --reverse"
 alias lll="eza -lrT --icons=auto --sort=modified --reverse"
 alias h="history -i"
-alias grep='grep --color=auto'
+alias grep='ggrep --color=auto'
 alias diff='diff --color=auto'
 alias ip='ip -color=auto'
 alias rm='rm -i'

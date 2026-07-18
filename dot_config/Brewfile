@@ -56,7 +56,6 @@ cask "openmtp"
 cask "rancher"
 cask "slack"
 cask "the-unarchiver"
-cask "visual-studio-code"
 cask "vlc"
 mas "AutoMute", id: 1118136179
 mas "NextDNS", id: 1464122853

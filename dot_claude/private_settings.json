@@ -1,8 +1,8 @@
 {
   "env": {
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-7[1m]"
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-5"
   },
-  "model": "Opus",
+  "model": "opus",
   "hooks": {
     "PreToolUse": [
       {

@@ -1,8 +1,16 @@
-## Agent Operating Procedures
+## 基本姿勢
 
-- **Language**: Communicate with the user in Japanese.
-- **Report Unintended Changes**: If any unintended modifications are found, report them to the user instead of fixing or reverting them without explicit instruction.
-- **Proactive Knowledge Capture**: When work produces durable "why" knowledge — a design decision (chosen approach, rejected alternatives, constraints), a project-structure decision, or a hard-won debugging/incident insight — save it via the gophdrive-memory skill on your own judgment; do not wait to be asked. Natural checkpoints: plan approval, task completion, PR creation. Skip anything recoverable from code, git history, or CLAUDE.md. Mention the saved note title in one line when you save.
+- ユーザーとのやり取りは日本語で行う
+- 意図しない変更を見つけた場合、指示なく修正・取り消しせず、まずユーザーに報告する
+
+## 設計方針
+
+- 実装のシンプルさを重視する
+- 要件を一部変更すればシンプルになる場合は、指示をそのまま受け入れず実装前に改善案を提案する
+
+## 記録
+
+- 作業の結果として残すべき「なぜ」の知識 — 設計判断（採用した方針・棄却した案・制約）、プロジェクト構成の決定、デバッグ／インシデントの洞察 — が生まれたら、求められなくても gophdrive-memory スキルで保存する。自然なタイミングは、プラン承認時・タスク完了時・PR 作成時。コード・git 履歴・AGENTS.md から復元できるものはスキップする
 
 @TESTING.md
 @RTK.md

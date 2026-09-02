@@ -1,8 +1,8 @@
-## Unit Testing Principles
+## ユニットテストの原則
 
-- **Test behavior, not implementation** — Verify observable outcomes (outputs, side effects, errors), not internal state or call counts.
-- **Inject dependencies via interfaces** — External systems (databases, APIs, encryption, environment variables) must be abstracted behind interfaces and injected through constructors. Never call `os.Getenv` or instantiate clients inside business logic.
-- **Prefer fakes over mock frameworks** — Use lightweight in-memory implementations that replicate real behavior. Reserve mock libraries for cases where fakes would be impractical.
-- **Do not mock pure functions** — Pure functions (no side effects, deterministic output) should be called directly in tests. Mocking them adds maintenance burden with no benefit.
-- **Minimum test coverage per endpoint** — Each public function should have tests for: success path, invalid input, authentication/authorization failure, and not-found cases where applicable.
-- **Refactor for testability** — If code is hard to test, treat it as a design problem and refactor. Testable code is well-designed code.
+- **実装ではなく振る舞いを検証する** — 観測可能な結果（出力、副作用、エラー）を確認する。内部状態や呼び出し回数は検証しない
+- **依存はインターフェース経由で注入する** — 外部システム（DB、API、暗号化、環境変数）はインターフェースで抽象化し、コンストラクタ経由で注入する。ビジネスロジック内で `os.Getenv` を呼んだりクライアントを直接生成したりしない
+- **純粋関数はモックしない** — 副作用がなく決定的な出力の純粋関数は、テストから直接呼ぶ。モックしてもメリットがなく、保守コストだけ増える
+- **エンドポイントあたりの最低カバレッジ** — 各公開関数について、成功パス・不正入力・認証／認可失敗・該当する場合の Not Found をテストする
+- **テスト容易性のためにリファクタする** — テストしにくいコードは設計上の問題として扱い、リファクタする。テストしやすいコードはよく設計されたコードである
+

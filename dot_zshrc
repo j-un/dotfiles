@@ -52,11 +52,13 @@ if [ -d "${HOME}/.rd/bin" ]; then
   export DOCKER_HOST=unix://$HOME/.rd/docker.sock
 fi
 
-path+=(
+path=(
   /opt/homebrew/opt/coreutils/libexec/gnubin(N-/)
+  /opt/homebrew/opt/curl/bin(N-/)
   ${HOME}/.rd/bin(N-/)
   ${HOME}/.browser-use-env/bin(N-/)
   ${HOME}/.local/bin(N-/)
+  $path
 )
 
 eval "$(mise activate zsh)"

@@ -1,18 +1,3 @@
-# CLI tools moved from ~/.config/Brewfile.
-# Each entry is the same package as the Homebrew formula (registry shorthand,
-# or an explicit backend when mise has no shorthand).
-# mise itself stays in Homebrew — this file is read by that mise.
-# Remove this file to uninstall all of these.
-#
-# Left in Brewfile on purpose:
-# - coreutils, gnu-sed: mise only has the uutils rewrites, not GNU
-# - grep: GNU grep; ripgrep is a different tool
-# - tree: aqua has peteretelej/tree, not the classic tree formula
-# - ffmpeg: mise's backend is conda (or a from-source asdf plugin)
-# - curl, git, httping, nkf, pwgen, source-highlight, tig, tofrodos, wget, zsh:
-#   no registry or aqua package
-# - casks and mas apps
-
 [tools]
 act                            = "latest"
 awscli                         = "latest"

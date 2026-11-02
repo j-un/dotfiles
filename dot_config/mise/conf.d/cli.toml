@@ -1,4 +1,5 @@
 [tools]
+go                             = "latest"
 act                            = "latest"
 awscli                         = "latest"
 "aqua:simonwhitaker/gibo"      = "latest"
@@ -22,4 +23,5 @@ gh                             = "latest"
 mas                            = "latest"
 bat                            = "latest"
 rtk                            = "latest"
+uv                             = "latest"
 "pipx:yubikey-manager"         = "latest"

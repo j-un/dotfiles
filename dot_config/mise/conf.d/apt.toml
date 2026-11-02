@@ -1,0 +1,7 @@
+[bootstrap.packages]
+"apt:zsh"              = "latest"
+"apt:build-essential"  = "latest"
+"apt:swig"             = "latest"
+"apt:libpcsclite-dev"  = "latest"
+"apt:python3-dev"      = "latest"
+"apt:source-highlight" = "latest"

@@ -8,3 +8,7 @@
 "npm:yaml-language-server"            = "latest"
 "npm:vscode-langservers-extracted"    = "latest"
 ruff                                  = "latest"
+fd                                    = "latest"
+marksman                              = "latest"
+taplo                                 = "latest"
+terraform-ls                          = "latest"

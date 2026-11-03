@@ -5,3 +5,7 @@ README.md
 .config/Brewfile
 .hammerspoon
 {{ end }}
+
+{{- if not (and (eq .chezmoi.os "linux") (or (eq (index .chezmoi.osRelease "id") "debian") (has "debian" (splitList " " (or (index .chezmoi.osRelease "idLike") ""))))) }}
+.config/mise/conf.d/apt.toml
+{{ end }}
